@@ -11,7 +11,8 @@ st.set_page_config(
 )
 
 st.title("💬 Generative AI Chatbot")
-st.session_state.chat_history=[]
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
 for messages in st.session_state.chat_history:
     with st.chat_message(messages["role"]):
         st.markdown(messages["content"])
